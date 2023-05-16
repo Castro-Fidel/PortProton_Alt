@@ -14,7 +14,9 @@ Source: https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_scr
 Source1: https://github.com/Castro-Fidel/PortWINE/raw/master/data_from_portwine/img/gui/port_proton.png
 Source2: https://raw.githubusercontent.com/Castro-Fidel/PortProton_dpkg/main/usr/share/applications/portproton.desktop
 
-Requires: bubblewrap cabextract curl gamemode icoutils libvulkan1 vulkan-tools wget zenity zstd gawk tar libd3d libMesaOpenCL
+Requires: libvulkan1 vulkan-tools libd3d libMesaOpenCL
+Requires: bubblewrap cabextract curl wget zstd gawk tar xz wget fontconfig xrdb pciutils bc coreutils file gamemode
+Requires: icoutils wmctrl zenity xdg-utils desktop-file-utils
 Requires: /usr/bin/convert
 
 ExclusiveArch: x86_64
