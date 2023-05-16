@@ -12,6 +12,7 @@ Packager: Vitaly Lipatov <lav@altlinux.ru>
 
 Source: https://github.com/Castro-Fidel/PortWINE/raw/master/portwine_install_script/PortProton_%version
 Source1: https://github.com/Castro-Fidel/PortWINE/raw/master/data_from_portwine/img/gui/port_proton.png
+Source2: https://raw.githubusercontent.com/Castro-Fidel/PortProton_dpkg/main/usr/share/applications/portproton.desktop
 
 Requires: bubblewrap cabextract curl gamemode icoutils libvulkan1 vulkan-tools wget zenity zstd gawk tar libd3d libMesaOpenCL
 Requires: /usr/bin/convert
@@ -28,23 +29,10 @@ Installer PortProton for Windows games.
 
 %install
 mkdir -p %buildroot%_desktopdir
-cat > %buildroot%_desktopdir/%name.desktop << EOF
-[Desktop Entry]
-Type=Application
-Name=PortProton
-Name[ru]=PortProton
-Comment=Installer PortProton for Windows games
-Comment[ru]=Установщик PortProton для Windows игр
-Exec=%name %%F
-Icon=%name
-StartupNotify=false
-Terminal=false
-Categories=Game;
-MimeType=application/x-wine-extension-msp;application/x-msi;application/x-ms-dos-executable;
-EOF
 
 install -m755 -D %SOURCE0 %buildroot%_bindir/%name
 install -m644 -D %SOURCE1 %buildroot%_pixmapsdir/%name.png
+install -m644 -D %SOURCE2 %buildroot%_desktopdir/%name.desktop
 
 %files
 %_bindir/%name
